@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-wdith">
+        <link rel="stylesheet" href="{% static "style.css" %}">
+        <title>{% block title %}勤務管理{% endblock %}</title>
+    </head>
+    <body>
+        <div class="button_list">
+            <table class="base_table">
+                <tr>
+                <td><button class="base_button" onclick="location.href='{% url 'payroll_app:home' %}'">勤務報告画面</button></td>
+                <td><button class="base_button" onclick="location.href='{% url 'payroll_app:salary' %}'">給与計算画面</button></td>
+                </tr>
+            </table>
+        </div>
+        {% block content %}{% endblock %}
+    </body>
+</html>

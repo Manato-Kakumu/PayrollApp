@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        {% extends "base.html" %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-wdith">
+        {% block title %}{{ block.super }} 給与計算{% endblock %}
+    </head>
+    <body>
+        {% block content %}
+        <div class="home">
+            <h1>給与計算ページ</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="登録">
+            </form>
+            {% if salary %}
+                <h1>今月の給与は{{ salary }}円です。</h1>
+                <h1>お疲れ様でした。</h1>
+            {% endif %}
+        </div>
+        {% endblock %}
+    </body>
+</html>
